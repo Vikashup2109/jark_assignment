@@ -28,7 +28,7 @@ const DropdownMenuComp = ({
           <div className="w-full flex gap-3 !items-center !justify-between ">
             <div className="flex items-center gap-3">
               <div className="rounded-full border bg-[#6b7280] w-8 h-8 flex items-center justify-center text-white">
-                {filterIcon}
+                {filterIcon ? filterIcon : <></>}
               </div>
               <span className="font-normal text-[15px]">{selectedValue}</span>
             </div>
