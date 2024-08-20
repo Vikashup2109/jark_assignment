@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { DropdownMenuComp } from "./DropDown/page";
+import DropdownMenuComp from "./DropDown/page";
 import { CalendarFold, Group, User } from "lucide-react";
 import { Button } from "../../components/ui/button";
 

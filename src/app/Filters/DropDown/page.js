@@ -51,5 +51,4 @@ const DropdownMenuComp = ({
     </DropdownMenu>
   );
 };
-
-export { DropdownMenuComp };
+export default DropdownMenuComp;
