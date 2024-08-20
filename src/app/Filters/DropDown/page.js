@@ -41,8 +41,8 @@ const DropDown = ({
           value={selectedValue}
           onValueChange={onValueChange}
         >
-          {filterValues?.map((value) => (
-            <DropdownMenuRadioItem key={value} value={value}>
+          {filterValues?.map((value, index) => (
+            <DropdownMenuRadioItem key={index} value={value}>
               {value}
             </DropdownMenuRadioItem>
           ))}
