@@ -12,7 +12,7 @@ import {
 } from "../../../components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
-const DropdownMenuComp = ({
+const DropDown = ({
   filterValues,
   filterIcon,
   selectedValue,
@@ -51,4 +51,4 @@ const DropdownMenuComp = ({
     </DropdownMenu>
   );
 };
-export default DropdownMenuComp;
+export default DropDown;

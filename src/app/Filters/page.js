@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import DropdownMenuComp from "./DropDown/page";
+import DropDown from "./DropDown/page";
 import { CalendarFold, Group, User } from "lucide-react";
 import { Button } from "../../components/ui/button";
 
@@ -34,13 +34,13 @@ const Filters = () => {
   return (
     <div className="flex flex-col-reverse lg:flex-row gap-4 my-7">
       <div className="flex flex-col-reverse lg:flex-row items-center gap-4 lg:w-1/2 ">
-        <DropdownMenuComp
+        <DropDown
           filterValues={usersFilterValues}
           filterIcon={userFilterIcon}
           selectedValue={filters.user}
           onValueChange={(value) => handleFilterChange("user", value)}
         />
-        <DropdownMenuComp
+        <DropDown
           filterValues={teamsFilterValues}
           filterIcon={teamsFilterIcon}
           selectedValue={filters.team}
@@ -48,7 +48,7 @@ const Filters = () => {
         />
       </div>
       <div className="flex flex-col-reverse lg:flex-row items-center gap-4  lg:w-1/2">
-        <DropdownMenuComp
+        <DropDown
           filterValues={dateFilterValues}
           filterIcon={DateFilterIcon}
           selectedValue={filters.date}
