@@ -18,15 +18,18 @@ const Filters = () => {
     team: "All",
     date: "Today",
   });
+  const [userFilter, setUserFilter] = useState("All");
+  const [teamFilter, setTeamFilter] = useState("all");
+  const [dateFilter, setDateFilter] = useState("All");
 
-  const handleFilterChange = (filterType, value) => {
-    setFilters((prevFilters) => {
-      return {
-        ...prevFilters,
-        [filterType]: value,
-      };
-    });
-  };
+  // const handleFilterChange = (filterType, value) => {
+  //   setFilters((prevFilters) => {
+  //     return {
+  //       ...prevFilters,
+  //       [filterType]: value,
+  //     };
+  //   });
+  // };
 
   const usersFilterValues = ["All", "Vikash", "Akash", "Shubham", "Ankit"];
   const userFilterIcon = <User />;
@@ -54,9 +57,7 @@ const Filters = () => {
                   <div className="rounded-full border bg-[#6b7280] w-8 h-8 flex items-center justify-center text-white">
                     {userFilterIcon ? userFilterIcon : <></>}
                   </div>
-                  <span className="font-normal text-[15px]">
-                    {filters?.user}
-                  </span>
+                  <span className="font-normal text-[15px]">{userFilter}</span>
                 </div>
                 <ChevronDown />
               </div>
@@ -64,8 +65,8 @@ const Filters = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="!w-[200px]">
             <DropdownMenuRadioGroup
-              value={filters?.date}
-              onValueChange={(value) => handleFilterChange("user", value)}
+              value={userFilter}
+              onValueChange={setUserFilter}
             >
               {usersFilterValues?.map((value, index) => (
                 <DropdownMenuRadioItem key={index} value={value}>
@@ -86,9 +87,7 @@ const Filters = () => {
                   <div className="rounded-full border bg-[#6b7280] w-8 h-8 flex items-center justify-center text-white">
                     {teamsFilterIcon ? teamsFilterIcon : <></>}
                   </div>
-                  <span className="font-normal text-[15px]">
-                    {filters.team}
-                  </span>
+                  <span className="font-normal text-[15px]">{teamFilter}</span>
                 </div>
                 <ChevronDown />
               </div>
@@ -96,14 +95,27 @@ const Filters = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="!w-[200px]">
             <DropdownMenuRadioGroup
-              value={filters?.team}
-              onValueChange={(value) => handleFilterChange("team", value)}
+              value={teamFilter}
+              onValueChange={setTeamFilter}
             >
-              {teamsFilterValues?.map((value, index) => (
-                <DropdownMenuRadioItem key={index} value={value}>
+              <DropdownMenuRadioItem value="all">All</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="team1">
+                Team 1
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="team2">
+                Team 2
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="team3">
+                Team 3
+              </DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="team4">
+                Team 4
+              </DropdownMenuRadioItem>
+              {/* {teamsFilterValues?.map((value, index) => (
+                <DropdownMenuRadioItem  value={value}>
                   {value}
                 </DropdownMenuRadioItem>
-              ))}
+              ))} */}
             </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>
@@ -120,9 +132,7 @@ const Filters = () => {
                   <div className="rounded-full border bg-[#6b7280] w-8 h-8 flex items-center justify-center text-white">
                     {DateFilterIcon ? DateFilterIcon : <></>}
                   </div>
-                  <span className="font-normal text-[15px]">
-                    {filters.date}
-                  </span>
+                  <span className="font-normal text-[15px]">{dateFilter}</span>
                 </div>
                 <ChevronDown />
               </div>
@@ -130,8 +140,8 @@ const Filters = () => {
           </DropdownMenuTrigger>
           <DropdownMenuContent className="!w-[200px]">
             <DropdownMenuRadioGroup
-              value={filters?.date}
-              onValueChange={(value) => handleFilterChange("date", value)}
+              value={dateFilter}
+              onValueChange={setDateFilter}
             >
               {dateFilterValues?.map((value, index) => (
                 <DropdownMenuRadioItem key={index} value={value}>
@@ -144,13 +154,11 @@ const Filters = () => {
 
         <Button
           className="bg-[#e4e6eb] text-[#464f5e] hover:bg-[#e4e6eb] border-2 border-[#e4e6eb] hover:border-[#464f5e] "
-          onClick={() =>
-            setFilters({
-              user: "All",
-              team: "All",
-              date: "Today",
-            })
-          }
+          onClick={() => {
+            setUserFilter("All");
+            setTeamFilter("All");
+            setDateFilter("All");
+          }}
         >
           Clear Filters
         </Button>

@@ -257,4 +257,4 @@ const Activity = () => {
   );
 };
 
-export { Activity };
+export default Activity;
