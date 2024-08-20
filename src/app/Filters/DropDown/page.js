@@ -12,12 +12,12 @@ import {
 } from "../../../components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
-export function DropdownMenuComp({
+const DropdownMenuComp = ({
   filterValues,
   filterIcon,
   selectedValue,
   onValueChange,
-}) {
+}) => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -50,4 +50,6 @@ export function DropdownMenuComp({
       </DropdownMenuContent>
     </DropdownMenu>
   );
-}
+};
+
+export { DropdownMenuComp };
